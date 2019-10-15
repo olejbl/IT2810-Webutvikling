@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Provider from "react-redux/lib/components/Provider";
 import SearchBar from "./components/SearchBar";
+import store from "./store";
 
 function App() {
   return (
