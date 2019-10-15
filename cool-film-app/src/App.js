@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './components/list-view.css';
 import ListView from './components/list-view.js';
 
 function App() {

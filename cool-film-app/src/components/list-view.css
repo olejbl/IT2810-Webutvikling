@@ -1,0 +1,13 @@
+.Overview-Elements {
+  text-align: center;
+  display: flex;
+}
+
+.Element-Wrapper {
+border-width: 10px;
+border-color: black;
+}
+
+.Element-Heading {
+color:black;
+}
