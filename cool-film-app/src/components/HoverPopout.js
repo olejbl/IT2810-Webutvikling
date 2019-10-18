@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import styled from 'styled-components'
 
-export default function HoverPopout ({ children, popout: Popout }) {
+const PopoutContainer = styled.div`
+  position: absolute;
+`
+
+export default function HoverPopout ({ children, popout: PopoutContent }) {
   const [ isHovering, setIsHovering ] = useState(false);
 
   return (
@@ -11,7 +16,11 @@ export default function HoverPopout ({ children, popout: Popout }) {
       >
         {children}
       </div>
-      {isHovering ? Popout : null}
+      {isHovering ? (
+        <PopoutContainer>
+          {PopoutContent}
+        </PopoutContainer>
+        ) : null}
     </>
   );
 }

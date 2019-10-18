@@ -2,25 +2,31 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  position: absolute;
-  border-width: 5px;
-  border-color: black;
+  background-color: white;
+  border-width: 1px;
+  border-color: lightgrey;
   border-style: solid;
-  margin-left: 10px;
-  margin-top: 10px;
-  width: 150px;
-  height: 200px;
+  border-radius: 8px;
+  padding: 16px;
 `
 
-const Title = styled.h1`
-  width: auto;
+const Title = styled.div`
   padding: 5px;
-  color: black;
-  font-size: 10px;
+  font-size: 12px;
 `
 
 const Poster = styled.img`
   width: 150px;
+  `
+
+const Text = styled.div`
+  font-size: 12px;
+  margin-bottom: 4px;
+`
+
+const TextContainer = styled.div`
+  min-width: 150px;
+  max-width: 230px;
 `
 
 export default function MoviePopoutContent ({
@@ -32,10 +38,11 @@ export default function MoviePopoutContent ({
 }) {
   return (
     <Container>
-      <Poster alt={title} src={posterUrl} />
-      <Title>{title} - {year}</h1>
-      <h3>{rating}</h3>
-      <h3>{plot}</h3>
+      <Title>{title} - {year}</Title>
+      <TextContainer>
+        <Text>IMDB rating: {rating}</Text>
+        <Text>{plot}</Text>
+      </TextContainer>
     </Container>
   );
 }

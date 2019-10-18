@@ -2,31 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  position: absolute;
-  border-width: 5px;
-  border-color: black;
-  border-style: solid;
-  margin-left: 10px;
-  margin-top: 10px;
-  width: 150px;
-  height: 200px;
-`
-
-const Title = styled.h1`
-  width: auto;
-  padding: 5px;
-  color: black;
-  font-size: 10px;
+  margin: 18px;
 `
 
 const Poster = styled.img`
   width: 150px;
 `
+
+const Text = styled.div`
+  font-size: 10px;
+`
+
 export default function MovieItem ({ title, posterUrl, year }) {
   return (
     <Container>
       <Poster alt={title} src={posterUrl} />
-      <Title>{title} - {year}</h1>
+      <Text>{title}</Text>
+      <Text>{year}</Text>
     </Container>
   );
 }
