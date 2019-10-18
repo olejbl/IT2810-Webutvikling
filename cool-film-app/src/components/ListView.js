@@ -1,15 +1,19 @@
-import React from 'react';
-import "./components/ListView.css";
+import React from 'react'
+import styled from 'styled-components'
+import MovieItem from './MovieItem'
+import HoverPopout from './HoverPopout'
+import MoviePopoutContent from './MoviePopoutContent'
 
-function SelectFunction(selected) {
-  alert(selected)
-}
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
 
 export default function ListView ({ movies }) {
   return (
-    <div className="list-container">
+    <Container>
       {movies.map((movie, index) => {
-        const { title, posterUrl, year, rating, plot, awards } = movie;
+        const { title, posterUrl, year, rating, plot } = movie;
         return (
           <div key={index}>
             <HoverPopout
@@ -20,7 +24,6 @@ export default function ListView ({ movies }) {
                   year={year}
                   rating={rating}
                   plot={plot}
-                  awards={awards}
                 />
               }>
               <MovieItem
@@ -32,6 +35,6 @@ export default function ListView ({ movies }) {
           </div>
         )
       })}
-    </div>
+    </Container>
   );
 }
