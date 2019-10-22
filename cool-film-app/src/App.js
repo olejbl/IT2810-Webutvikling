@@ -21,9 +21,10 @@ const apiUrl = 'https://api.themoviedb.org/3'
 
 export default function App() {
   const [loadedMovies, setLoadedMovies] = useState([]);
+  // TODO: state for query string here
 
   useEffect(() => {
-    fetch(`${apiUrl}/discover/movie?primary_release_date.gte=2019-08-01&primary_release_date.lte=2019-10-18&api_key=f51e6992d22392e91a2fe35d26f556e2`)
+    fetch(`${apiUrl}/discover/movie?primary_release_date.gte=2019-08-01&primary_release_date.lte=2019-10-18&api_key=f51e6992d22392e91a2fe35d26f556e2`) // to-do: use query state instead of static url
       .then(response => {
         if (response.ok) return response.json()
       })
@@ -40,13 +41,13 @@ export default function App() {
         })
       })
       .then(mappedMovies => setLoadedMovies(mappedMovies))
-  }, [])
+  }, []) // TODO: add query string state to dependency array to the left
 
   return (
     <Provider store={store}>
       <Container>
-        <ListView movies={loadedMovies} />
         <SearchBar/>
+        <ListView movies={loadedMovies} />
       </Container>
     </Provider>
   );

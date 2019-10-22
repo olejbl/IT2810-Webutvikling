@@ -3,11 +3,9 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   background-color: white;
-  border-width: 1px;
-  border-color: lightgrey;
-  border-style: solid;
   border-radius: 8px;
   padding: 16px;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.14);
 `
 
 const Title = styled.div`
@@ -17,7 +15,7 @@ const Title = styled.div`
 
 const Poster = styled.img`
   width: 150px;
-  `
+`
 
 const Text = styled.div`
   font-size: 12px;
