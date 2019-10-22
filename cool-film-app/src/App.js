@@ -4,6 +4,7 @@ import Provider from "react-redux/lib/components/Provider"
 import SearchBar from "./components/SearchBar"
 import ListView from "./components/ListView"
 import store from "./store"
+import Navbar from "./components/Navbar"
 
 const Container = styled.header`
   display: flex;
@@ -13,6 +14,7 @@ const Container = styled.header`
   min-height: 100vh;
   background-color: white;
   font-size: calc(10px + 2vmin);
+  transition: 0.5s all ease-in;
 `
 
 const apiUrl = 'https://api.themoviedb.org/3'
@@ -46,6 +48,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <Container>
+        <Navbar />
         <SearchBar/>
         <ListView movies={loadedMovies} />
       </Container>

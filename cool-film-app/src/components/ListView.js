@@ -7,6 +7,7 @@ import MoviePopoutContent from './MoviePopoutContent'
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  transition: 0.5s all ease-in;
 `
 
 export default function ListView ({ movies }) {
