@@ -6,17 +6,19 @@ const Container = styled.div`
   margin-left: 2vw;
   margin-top: 3vh;
   max-width: 150px;
-`
+  padding: 10px;
+  background-image: radial-gradient(circle, #999999, #b9b9b9);
+`;
 
 const Poster = styled.img`
   width: 150px;
   left: 50%;
   height: 225px;
-`
+`;
 
 const Text = styled.div`
   font-size: 10px;
-`
+`;
 
 export default function MovieItem ({ title, posterUrl, year }) {
   return (

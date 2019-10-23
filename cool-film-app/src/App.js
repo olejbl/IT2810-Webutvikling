@@ -12,12 +12,11 @@ const Container = styled.header`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: white;
   font-size: calc(12px + 2vmin);
   font-family: arial;
-`
+`;
 
-const apiUrl = 'https://api.themoviedb.org/3'
+const apiUrl = 'https://api.themoviedb.org/3';
 // /movie/550?api_key=f51e6992d22392e91a2fe35d26f556e2
 // /discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22&api_key=f51e6992d22392e91a2fe35d26f556e2
 
@@ -43,7 +42,7 @@ export default function App() {
         })
       })
       .then(mappedMovies => setLoadedMovies(mappedMovies))
-  }, []) // TODO: add query string state to dependency array to the left
+  }, []); // TODO: add query string state to dependency array to the left
 
   return (
     <Provider store={store}>
