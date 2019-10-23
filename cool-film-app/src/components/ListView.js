@@ -7,6 +7,7 @@ import MoviePopoutContent from './MoviePopoutContent'
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export default function ListView ({ movies }) {
