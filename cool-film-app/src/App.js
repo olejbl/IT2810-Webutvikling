@@ -4,6 +4,7 @@ import Provider from "react-redux/lib/components/Provider"
 import SearchBar from "./components/SearchBar"
 import ListView from "./components/ListView"
 import store from "./store"
+import Navbar from "./components/Navbar"
 
 const Container = styled.header`
   display: flex;
@@ -24,7 +25,7 @@ export default function App() {
   // TODO: state for query string here
 
   useEffect(() => {
-    fetch(`${apiUrl}/discover/movie?primary_release_date.gte=2019-08-01&primary_release_date.lte=2019-10-18&api_key=f51e6992d22392e91a2fe35d26f556e2`) // to-do: use query state instead of static url
+    fetch(`${apiUrl}/discover/movie?primary_release_date.gte=2017-08-01&primary_release_date.lte=2019-10-18&api_key=f51e6992d22392e91a2fe35d26f556e2`) // to-do: use query state instead of static url
       .then(response => {
         if (response.ok) return response.json()
       })
@@ -46,7 +47,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <Container>
-        <SearchBar/>
+        <Navbar />
         <ListView movies={loadedMovies} />
       </Container>
     </Provider>
