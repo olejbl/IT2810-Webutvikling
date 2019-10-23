@@ -48,7 +48,6 @@ export default function App() {
     <Provider store={store}>
       <Container>
         <Navbar />
-        <SearchBar/>
         <ListView movies={loadedMovies} />
       </Container>
     </Provider>
