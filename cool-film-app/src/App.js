@@ -13,8 +13,8 @@ const Container = styled.header`
   justify-content: center;
   min-height: 100vh;
   background-color: white;
-  font-size: calc(10px + 2vmin);
-  transition: 0.5s all ease-in;
+  font-size: calc(12px + 2vmin);
+  font-family: arial;
 `
 
 const apiUrl = 'https://api.themoviedb.org/3'
