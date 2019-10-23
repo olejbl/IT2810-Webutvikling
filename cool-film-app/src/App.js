@@ -6,6 +6,14 @@ import ListView from "./components/ListView"
 import store from "./store"
 import Navbar from "./components/Navbar"
 
+fetch('http://localhost:3001/movies')
+.then(result => {
+return result.json();
+})
+.then(data => {
+console.log(data)
+})
+
 const Container = styled.header`
   display: flex;
   flex-direction: column;
@@ -31,6 +39,7 @@ export default function App() {
       })
       .then(json => json.results)
       .then(results => {
+        console.log(results)
         return results.map((result) => {
           return {
             title: result.title,
