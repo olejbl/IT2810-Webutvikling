@@ -6,17 +6,17 @@ const Container = styled.div`
   margin-left: 2vw;
   margin-top: 3vh;
   max-width: 150px;
-`
+`;
 
 const Poster = styled.img`
   width: 150px;
   left: 50%;
   height: 225px;
-`
+`;
 
 const Text = styled.div`
   font-size: 10px;
-`
+`;
 
 export default function MovieItem ({ title, posterUrl, year }) {
   return (

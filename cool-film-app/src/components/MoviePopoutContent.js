@@ -8,7 +8,7 @@ const Container = styled.div`
   box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.14);
   left: 50%;
   width: fit-content;
-`
+`;
 
 const Title = styled.div`
   padding: 5px;
@@ -16,21 +16,21 @@ const Title = styled.div`
   font-weight: bold;
   text-align: center;
   margin-bottom: 3%;
-`
+`;
 
 const Poster = styled.img`
   width: 150px;
-`
+`;
 
 const Text = styled.div`
   font-size: 12px;
   margin-bottom: 4px;
-`
+`;
 
 const TextContainer = styled.div`
   min-width: 150px;
   max-width: 200px;
-`
+`;
 
 export default function MoviePopoutContent ({
   title,
