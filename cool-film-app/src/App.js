@@ -11,7 +11,7 @@ const Container = styled.header`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: white;
+  background-color: #c9c9c9;
   font-size: calc(12px + 2vmin);
   font-family: arial;
 `;
