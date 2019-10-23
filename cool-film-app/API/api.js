@@ -3,18 +3,15 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
-
 // Enable cors
 app.use(cors());
-
 // parses posts to be able to use
 app.use(bodyParser.json());
 
 //Import Routes
+const movieRoute = require('./posts/movies.js');
 
-const postRoute = require('./posts/posts.js');
-
-app.use('/posts', postRoute);
+app.use('/movies', movieRoute);
 
 // START ROUTE
 
