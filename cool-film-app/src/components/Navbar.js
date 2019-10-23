@@ -1,7 +1,8 @@
-
+//https://www.robinwieruch.de/react-styled-components
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Home } from '../homeIcon.svg';
+import { ReactComponent as Genres } from '../genres.svg';
 
 const Nav = styled.div`
   background-color: #fff;
@@ -17,10 +18,12 @@ const NavHeader = styled.div`
 `;
 const NavLeft = styled.div`
   width: 33.333%;
+  display: flex;
   text-align: left;
 `;
 const NavCenter = styled.div`
-  width: 33.333%;
+
+  display: flex;
   text-align: center;
 `;
 const Input = styled.input`
@@ -46,6 +49,7 @@ const NavRight = styled.div`
   text-align: right;
   svg {
     margin-right: 70px;
+    max-width:20px;
   }
 `;
 const MenuLink = styled.a``;
@@ -59,12 +63,12 @@ function Navbar() {
         </NavCenter>
         <NavRight>
           <MenuLink href="#">
-            Home
-          </MenuLink>
-          {/* <MenuLink href="#">
-            <Explore />
+            <Home />   
           </MenuLink>
           <MenuLink href="#">
+             <Genres />
+          </MenuLink>
+          {/* <MenuLink href="#">
             <Avatar />
           </MenuLink> */}
         </NavRight>
