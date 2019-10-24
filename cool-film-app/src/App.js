@@ -5,6 +5,7 @@ import SearchBar from "./components/SearchBar"
 import ListView from "./components/ListView"
 import store from "./store"
 import Navbar from "./components/Navbar"
+import Rating from "./components/Rating"
 
 fetch('http://localhost:3001/movies')
 .then(result => {
@@ -56,6 +57,7 @@ export default function App() {
     <Provider store={store}>
       <Container>
         <Navbar />
+        <Rating />
         <ListView movies={loadedMovies} />
       </Container>
     </Provider>
