@@ -1,68 +1,27 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#COOL FILM APP
+Cool Film App is a React app that lets you see information about a few movies; both ratings, titles, posters, you name it! To set up the project, simply follow the instructions in this README.
 
-## Available Scripts
+##Setting up
+To set up this project you will need node.js, which you can get from https://nodejs.org/. Once you have that, you clone the project using this command:
+```
+    git clone git@gitlab.stud.idi.ntnu.no:IT2810-H19/teams/team-50/prosjekt3.git
+```
 
-In the project directory, you can run:
+After this you have to navigate into the cool-film-app folder and run ```npm install```
 
-### `yarn start`
+Once this is done, you may run the app. To start the server you have to navigate into the API folder and run ```npm start```. After that, you may start the app with another console by running ```npm start``` in the cool-film-app folder.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##Testing
+We haven't  implemented testing yet lmao
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+##Redux
+Redux er satt opp, men ikke i bruk
 
-### `yarn test`
+##Backend
+Vi har valgt å implementere et REST API med Express, og har MongoDB som database. Dette bestemte vi oss for fordi vi har mest kjennskap til REST, og ville spare oss for unødvendig arbeid med tanke på at prosjektet allerede er ganske stort. Mongoose har blitt brukt for å koble sammen databasen og API-et, siden vi fant ut at det var ganske greit å bruke.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+We chose to implement a REST API with Express, and used MongoDB as our database. We populated our database with a bunch of movies, and aimed to make an imdb-ish (With emphasis on ish) app. We chose REST because we knew a bit more about it than GraphQL, and wanted to not make the work too much for us. Mongoose was used to connect the API to the database.
+##Søk
+Her må vi nesten spørre Henrik om hvordan den funker
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+##Paginering
