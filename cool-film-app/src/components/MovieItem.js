@@ -20,6 +20,7 @@ const Text = styled.div`
   font-size: 10px;
 `;
 
+// This function creates a movie element. These are the ones you see in the List View
 export default function MovieItem ({ title, posterUrl, year }) {
   return (
     <Container>

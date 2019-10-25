@@ -5,6 +5,7 @@ const PopoutContainer = styled.div`
   position: absolute;
 `;
 
+// This function decides whether the extra info about the movies are supposed to be displayed or not
 export default function HoverPopout ({ children, popout: PopoutContent }) {
   const [ isHovering, setIsHovering ] = useState(false);
 

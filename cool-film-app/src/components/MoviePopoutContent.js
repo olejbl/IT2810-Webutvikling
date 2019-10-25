@@ -32,6 +32,7 @@ const TextContainer = styled.div`
   max-width: 200px;
 `;
 
+// This function returns the content of the box that pops up when you hover over a movie
 export default function MoviePopoutContent ({
   title,
   posterUrl,

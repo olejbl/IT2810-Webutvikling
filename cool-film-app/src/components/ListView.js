@@ -29,6 +29,7 @@ const PageNumberButton = styled.li`
   background-color: #ccd8eb;
 `;
 
+// This is one of our biggest components. In ListView we render the movies we want to display, and also implement pagination on the data set we get from App.js
 class ListView extends Component {
 
     constructor(props) {
@@ -60,6 +61,7 @@ class ListView extends Component {
             pageNumbers.push(i);
         }
 
+        // Make the page number list
         const renderPageNumbers = pageNumbers.map(number => {
             return (
                 <PageNumberButton
@@ -84,6 +86,8 @@ class ListView extends Component {
                                 searchvalue = searchvalue.replace("%3A", ":");
                                 searchvalue = searchvalue.replace("#", "");
                             }
+                            // Search functionality
+                            // If we aren't searching for anything:
                             if (searchvalue === "") {
                                 return <div key={index}>
                                     <HoverPopout
@@ -102,6 +106,7 @@ class ListView extends Component {
                                             year={movie.year}
                                         />
                                     </HoverPopout></div>
+                                // Check if any movies includes the search value and display the relevant ones
                             } else if (movie.title.toUpperCase().includes(searchvalue.toUpperCase())) {
                                 return <div key={index}>
                                     <HoverPopout

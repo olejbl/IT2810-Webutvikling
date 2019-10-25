@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+// This is the search bar that is included in the navbar. It is used to search for movies in the database
 class SearchBar extends Component {
     render() {
         return (
