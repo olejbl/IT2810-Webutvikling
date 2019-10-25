@@ -76,8 +76,8 @@ export default function App() {
   return (
     <Provider store={store}>
       <Rating />
+      <Navbar />
       <Container>
-        <Navbar />
         <ListView movies={loadedMovies} />
       </Container>
     </Provider>
