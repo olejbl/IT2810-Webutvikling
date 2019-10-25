@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 const PopoutContainer = styled.div`
   position: absolute;
-  
 `;
 
 export default function HoverPopout ({ children, popout: PopoutContent }) {

@@ -45,7 +45,6 @@ class ListView extends Component {
                       />
                       </HoverPopout></div>
                     }
-                    //Uppercaser alt for at bruker ikke må skrive nøyaktig tittel.
                     else if (movie.title.toUpperCase().includes(searchvalue.toUpperCase())){
                       return  <div key={index}>
                         <HoverPopout
