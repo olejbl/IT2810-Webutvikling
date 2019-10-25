@@ -51,8 +51,8 @@ class ListView extends Component {
         const firstMovieOnPageIndex = finalMovieOnPageIndex - per_page;
         const currentMovies = this.props.movies.slice(firstMovieOnPageIndex, finalMovieOnPageIndex);
 
-
-        // Page navigation logic
+        /* Page navigation logic */
+        // Page number navigation
         const pageNumbers = [];
         for (let i = 1; i <= Math.ceil(this.props.movies.length / 14); i++) {
             console.log(i);
