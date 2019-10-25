@@ -4,7 +4,6 @@ import MovieItem from './MovieItem'
 import HoverPopout from './HoverPopout'
 import MoviePopoutContent from './MoviePopoutContent'
 import {Component} from 'react'
-import ReactPaginate from 'react-paginate';
 
 const MovieListContainer = styled.div`
   display: flex;
@@ -17,7 +16,6 @@ class ListView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            movies: this.props.movies,
             per_page: 14,
             current_page: 1
         };
@@ -26,15 +24,38 @@ class ListView extends Component {
 
     handleClick(event) {
         this.setState({
-            currentPage: Number(event.target.id)
+            current_page: Number(event.target.id)
         });
     }
 
     render() {
-        const { movies, per_page, current_page } = this.state;
+
+        // Logic for displaying only 14 movies per page
+        const { per_page, current_page } = this.state;
         const finalMovieOnPageIndex = current_page * per_page;
         const firstMovieOnPageIndex = finalMovieOnPageIndex - per_page;
         const currentMovies = this.props.movies.slice(firstMovieOnPageIndex, finalMovieOnPageIndex);
+
+
+        // Page navigation logic
+        const pageNumbers = [];
+        for (let i = 1; i <= Math.ceil(this.props.movies.length / 14); i++) {
+            console.log(i);
+            pageNumbers.push(i);
+        }
+
+        const renderPageNumbers = pageNumbers.map(number => {
+            return (
+                <li
+                    key={number}
+                    id={number}
+                    onClick={this.handleClick}
+                >
+                    {number}
+                </li>
+            );
+        });
+
         return (
             <div>
                 <MovieListContainer>
@@ -58,6 +79,9 @@ class ListView extends Component {
                             </HoverPopout></div>
                     )}
                 </MovieListContainer>
+                <ul id={pageNumbers}>
+                    {renderPageNumbers}
+                </ul>
             </div>
         );
     }
