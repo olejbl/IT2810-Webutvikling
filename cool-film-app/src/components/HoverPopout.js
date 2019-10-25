@@ -8,6 +8,7 @@ const PopoutContainer = styled.div`
 export default function HoverPopout ({ children, popout: PopoutContent }) {
   const [ isHovering, setIsHovering ] = useState(false);
 
+
   return (
     <>
       <div

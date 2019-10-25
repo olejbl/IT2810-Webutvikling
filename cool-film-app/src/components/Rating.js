@@ -1,8 +1,10 @@
+//https://github.com/voronianski/react-star-rating-component
 import React from 'react';
 import ReactDOM from 'react-dom';
 import StarRatingComponent from 'react-star-rating-component';
+import Navbar from './Navbar';
 
-class App extends React.Component {
+class Rating extends React.Component {
   constructor() {
     super();
 
@@ -32,7 +34,8 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <App />, 
-  document.getElementById('app')
-);
+// ReactDOM.render(
+//   <Rating />, 
+//   document.getElementById('app')
+// );
+export default Rating;

@@ -33,8 +33,8 @@ export default function App() {
   const [loadedMovies, setLoadedMovies] = useState([]);
   // TODO: state for query string here
 
-  useEffect(() => {
-    fetch('http://localhost:3001/movies')
+  //useEffect(() => {
+/*     fetch('http://localhost:3001/movies')
     .then(result => {
     return result.json();
     })
@@ -51,13 +51,33 @@ export default function App() {
         })
       })
       .then(mappedMovies => setLoadedMovies(mappedMovies))
-  }, []); // TODO: add query string state to dependency array to the left
+  }, []); // TODO: add query string state to dependency array to the left */
+  useEffect(() => {
+    fetch(`${apiUrl}/discover/movie?primary_release_date.gte=2019-08-01&primary_release_date.lte=2019-10-18&api_key=f51e6992d22392e91a2fe35d26f556e2`) // to-do: use query state instead of static url
+      .then(response => {
+        if (response.ok) return response.json()
+      })
+      .then(json => json.results)
+      .then(results => {
+        return results.map((result) => {
+          return {
+            title: result.title,
+            posterUrl: `https://image.tmdb.org/t/p/original/${result.poster_path}`,
+            year: result.release_date,
+            rating: result.vote_average,
+            plot: result.overview,
+          }
+        })
+      })
+      .then(mappedMovies => setLoadedMovies(mappedMovies))
+  }, [])
+
 
   return (
     <Provider store={store}>
+      <Rating />
       <Container>
         <Navbar />
-        <Rating />
         <ListView movies={loadedMovies} />
       </Container>
     </Provider>
