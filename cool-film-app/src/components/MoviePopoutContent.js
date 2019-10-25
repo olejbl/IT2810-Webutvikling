@@ -32,23 +32,23 @@ const TextContainer = styled.div`
   max-width: 200px;
 `;
 
-export default function MoviePopoutContent ({
-  title,
-  posterUrl,
-  year,
-  _id,
-  rating,
-  plot,
-}) {
-  return (
-    <Container>
-      <Title>{title}</Title>
-      <TextContainer>
-          <Text>Premiere: {year}</Text>
-          <Text>IMDB rating: {rating}</Text>
-          <br/>
-          <Text>{plot}</Text>
-      </TextContainer>
-    </Container>
-  );
+export default function MoviePopoutContent({
+                                               title,
+                                               posterUrl,
+                                               year,
+                                               _id,
+                                               rating,
+                                               plot,
+                                           }) {
+    return (
+        <Container>
+            <Title>{title}</Title>
+            <TextContainer>
+                <Text>Premiere: {year}</Text>
+                <Text>IMDB rating: {rating}</Text>
+                <br/>
+                <Text>{plot}</Text>
+            </TextContainer>
+        </Container>
+    );
 }

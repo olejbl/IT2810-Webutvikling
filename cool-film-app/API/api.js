@@ -16,16 +16,16 @@ app.use('/movies', movieRoute);
 // START ROUTE
 
 app.get('/', (req, res) => {
-res.send('We are on home');
+    res.send('We are on home');
 });
 
 //Connect to DB
 // Kunne skjult brukernavn:passord, men er et åpent prosjekt på en vm så ser ikke helt nødvendigheten.
 mongoose.connect(
-  'mongodb://user1:user1password@it2810-50.idi.ntnu.no:27017/prosjekt3',
-{ useNewUrlParser: true },
- { useUnifiedTopology: true },
-() => console.log('Connected to DB')
+    'mongodb://user1:user1password@it2810-50.idi.ntnu.no:27017/prosjekt3',
+    {useNewUrlParser: true},
+    {useUnifiedTopology: true},
+    () => console.log('Connected to DB')
 );
 
 
