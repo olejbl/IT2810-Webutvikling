@@ -11,6 +11,21 @@ const MovieListContainer = styled.div`
   justify-content: center;
 `;
 
+const PageNumberContainer = styled.ul`
+  list-style: none;
+  display: flex;
+  justify-content: center;
+`;
+
+const PageNumberButton = styled.li`
+  color: blue;
+  user-select: none;
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 20px;
+  background-color: #ccd8eb;
+`;
+
 class ListView extends Component {
 
     constructor(props) {
@@ -31,7 +46,7 @@ class ListView extends Component {
     render() {
 
         // Logic for displaying only 14 movies per page
-        const { per_page, current_page } = this.state;
+        const {per_page, current_page} = this.state;
         const finalMovieOnPageIndex = current_page * per_page;
         const firstMovieOnPageIndex = finalMovieOnPageIndex - per_page;
         const currentMovies = this.props.movies.slice(firstMovieOnPageIndex, finalMovieOnPageIndex);
@@ -46,13 +61,13 @@ class ListView extends Component {
 
         const renderPageNumbers = pageNumbers.map(number => {
             return (
-                <li
+                <PageNumberButton
                     key={number}
                     id={number}
                     onClick={this.handleClick}
                 >
                     {number}
-                </li>
+                </PageNumberButton>
             );
         });
 
@@ -79,9 +94,9 @@ class ListView extends Component {
                             </HoverPopout></div>
                     )}
                 </MovieListContainer>
-                <ul id={pageNumbers}>
+                <PageNumberContainer id={pageNumbers}>
                     {renderPageNumbers}
-                </ul>
+                </PageNumberContainer>
             </div>
         );
     }
