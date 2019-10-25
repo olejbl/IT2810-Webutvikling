@@ -5,8 +5,6 @@ import HoverPopout from './HoverPopout'
 import MoviePopoutContent from './MoviePopoutContent'
 import {Component} from 'react'
 
-var searchvalue = "";
-
 
 const MovieListContainer = styled.div`
   display: flex;
@@ -52,7 +50,6 @@ class ListView extends Component {
         const finalMovieOnPageIndex = current_page * per_page;
         const firstMovieOnPageIndex = finalMovieOnPageIndex - per_page;
         const currentMovies = this.props.movies.slice(firstMovieOnPageIndex, finalMovieOnPageIndex);
-
         /* Page navigation logic */
         // Page number navigation
         const pageNumbers = [];
@@ -60,7 +57,6 @@ class ListView extends Component {
             console.log(i);
             pageNumbers.push(i);
         }
-
         const renderPageNumbers = pageNumbers.map(number => {
             return (
                 <PageNumberButton
@@ -76,34 +72,9 @@ class ListView extends Component {
             <div>
                 <MovieListContainer>
                     {currentMovies.map((movie, index) => {
-                            var url = window.location.href;
-                            var params = url.split('?search=');
-                            var searchvalue = params[1];
-                            //fjerner + fra parameterne så det matcher movie.title og blir %3A ved : så endrer det tilbake' tar bort # fra store delen også.
-                            for (var i = 0; i < searchvalue.length; i++) {
-                                searchvalue = searchvalue.replace("+", " ");
-                                searchvalue = searchvalue.replace("%3A", ":");
-                                searchvalue = searchvalue.replace("#", "");
-                            }
-                            if (searchvalue === "") {
-                                return <div key={index}>
-                                    <HoverPopout
-                                        popout={
-                                            <MoviePopoutContent
-                                                title={movie.title}
-                                                posterUrl={movie.posterUrl}
-                                                year={movie.year}
-                                                rating={movie.rating}
-                                                plot={movie.plot}
-                                            />
-                                        }>
-                                        <MovieItem
-                                            title={movie.title}
-                                            posterUrl={movie.posterUrl}
-                                            year={movie.year}
-                                        />
-                                    </HoverPopout></div>
-                            } else if (movie.title.toUpperCase().includes(searchvalue.toUpperCase())) {
+                        if (movie === undefined) {
+                            console.log("Null")
+                        }else {
                                 return <div key={index}>
                                     <HoverPopout
                                         popout={
@@ -122,8 +93,7 @@ class ListView extends Component {
                                         />
                                     </HoverPopout></div>
                             }
-                        }
-                    )
+                    })
                     }
                 </MovieListContainer>
                 <PageNumberContainer id={pageNumbers}>

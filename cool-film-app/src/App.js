@@ -39,17 +39,41 @@ export default function App() {
     })
     .then(data => {
       console.log(data)
-        return data.map((result) => {
-          return {
-            title: result.title,
-            posterUrl: `https://image.tmdb.org/t/p/original/${result.poster_path}`,
-            year: result.release_date,
-            rating: result.vote_average,
-            plot: result.overview,
-          }
-        })
+        return data.map((result, index) => {
+                        var url = window.location.href;
+                        var params = url.split('?search=');
+                        var searchvalue = params[1];
+                        // Liten workaround når siden lastes inn og det ikke er noe definert i paramsene så appen ikke kræsjer.
+                        if (searchvalue == undefined) {
+                            searchvalue = "";
+                        }
+                        console.log(searchvalue)
+                        //fjerner + fra parameterne så det matcher movie.title og blir %3A ved : så endrer det tilbake' tar bort # fra store delen også.
+                        for (var i = 0; i < searchvalue.length; i++) {
+                            searchvalue = searchvalue.replace("+", " ");
+                            searchvalue = searchvalue.replace("%3A", ":");
+                            searchvalue = searchvalue.replace("#", "");
+                        }
+                    if (result.title.toUpperCase().includes(searchvalue.toUpperCase())) {
+                          console.log("SEARCHVALUE" +result.title);
+                            return{
+                              title: result.title,
+                              posterUrl: `https://image.tmdb.org/t/p/original/${result.poster_path}`,
+                              year: result.release_date,
+                              rating: result.vote_average,
+                              plot: result.overview,
+                            }
+                        }
+                    }
+                )
       })
-      .then(mappedMovies => setLoadedMovies(mappedMovies))
+      .then(mappedMovies => {
+        var filtered = mappedMovies.filter(function (el) {
+               return el != null;
+             });
+          return filtered
+      })
+      .then(filtered => setLoadedMovies(filtered))
   }, []); // TODO: add query string state to dependency array to the left
 
   return (
