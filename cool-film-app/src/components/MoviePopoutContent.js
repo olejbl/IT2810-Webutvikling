@@ -36,6 +36,7 @@ export default function MoviePopoutContent ({
   title,
   posterUrl,
   year,
+  _id,
   rating,
   plot,
 }) {

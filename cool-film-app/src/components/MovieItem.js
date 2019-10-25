@@ -19,13 +19,13 @@ const Poster = styled.img`
 const Text = styled.div`
   font-size: 10px;
 `;
-
 export default function MovieItem ({ title, posterUrl, year }) {
   return (
     <Container>
-      <Poster alt={title} src={posterUrl} />
+      <Poster alt={title} src={posterUrl}/>
       <Text>{title}</Text>
       <Text>{year}</Text>
+
     </Container>
   );
 }

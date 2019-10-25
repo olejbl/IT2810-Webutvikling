@@ -38,4 +38,32 @@ res.json(data);
 
 });
 
+//SPESIFIC POST GET
+router.get('/:_id', async (req, res) => {
+  try{
+const movie = await Movie.findById(req.params._id)
+res.json(movie)
+
+}catch(err){
+  res.json({ message: err})
+}
+
+});
+//SPESIFIC POST UPDATE
+router.patch('/:_id', async (req, res) => {
+  try{
+ const updateMovie = await Movie.updateOne({_id: req.params._id},
+    {$set: {score: req.body.score, antall_scorere: req.body.antall_scorere}}
+
+  );
+  res.json(updatedMovie)
+}catch(err){
+  res.json({ message: err})
+}
+});
+
+
+
+
+
 module.exports = router

@@ -4,7 +4,7 @@ import MovieItem from './MovieItem'
 import HoverPopout from './HoverPopout'
 import MoviePopoutContent from './MoviePopoutContent'
 import {Component} from 'react'
-
+var personscore;
 
 const MovieListContainer = styled.div`
   display: flex;
@@ -44,6 +44,49 @@ class ListView extends Component {
         });
     }
 
+    changescore = (movie) => {
+       console.log(movie.title);
+       console.log(movie.year);
+       console.log(movie._id);
+
+       var person = prompt("Please enter on a scale from 1-10 what score you would give" + movie.title);
+       if (person == null || person == "") {
+    alert("Please give a score")
+}else {
+    personscore = person
+    fetch('http://localhost:3001/movies/'+movie._id)
+    .then(result => {
+    return result.json();
+    })
+    .then(data => {
+                    console.log(data);
+                    console.log(data._id);
+                    console.log(personscore);
+                    var newantall = (data.antall_scorere+1);
+                    console.log(newantall);
+                    var newscore = data.score*data.antall_scorere;
+                            console.log(newscore);
+                    var newscore2 = Number(newscore)+Number(personscore);
+                        console.log(newscore2);
+                    var newscore3 = newscore2/newantall;
+                        console.log(newscore3);
+        fetch('http://localhost:3001/movies/'+data._id, {
+        			method: 'PATCH',
+        			body: JSON.stringify({
+        					score:newscore3,
+        			antall_scorere:newantall
+        			}),
+        			headers: {
+        				"Content-type": "application/json; charset=UTF-8"
+        			}
+        		}).then(response => {
+        				return response.json()
+        			}).then(json => {
+        			console.log("done");
+        			});
+    })
+  }
+     }
     render() {
         // Logic for displaying only 14 movies per page
         const {per_page, current_page} = this.state;
@@ -54,7 +97,6 @@ class ListView extends Component {
         // Page number navigation
         const pageNumbers = [];
         for (let i = 1; i <= Math.ceil(this.props.movies.length / 14); i++) {
-            console.log(i);
             pageNumbers.push(i);
         }
         const renderPageNumbers = pageNumbers.map(number => {
@@ -72,10 +114,8 @@ class ListView extends Component {
             <div>
                 <MovieListContainer>
                     {currentMovies.map((movie, index) => {
-                        if (movie === undefined) {
-                            console.log("Null")
-                        }else {
-                                return <div key={index}>
+
+                                return <div key={index} onClick={() => this.changescore(movie)}>
                                     <HoverPopout
                                         popout={
                                             <MoviePopoutContent
@@ -90,9 +130,10 @@ class ListView extends Component {
                                             title={movie.title}
                                             posterUrl={movie.posterUrl}
                                             year={movie.year}
+
                                         />
                                     </HoverPopout></div>
-                            }
+
                     })
                     }
                 </MovieListContainer>
@@ -102,11 +143,6 @@ class ListView extends Component {
             </div>
         );
     }
-
-    componentDidUpdate() {
-        console.log("update");
-    }
-
 }
 
 export default ListView

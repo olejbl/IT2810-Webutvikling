@@ -6,13 +6,6 @@ import ListView from "./components/ListView"
 import store from "./store"
 import Navbar from "./components/Navbar"
 
-fetch('http://localhost:3001/movies')
-.then(result => {
-return result.json();
-})
-.then(data => {
-console.log(data)
-})
 
 const Container = styled.header`
   display: flex;
@@ -23,7 +16,6 @@ const Container = styled.header`
   font-size: calc(12px + 2vmin);
   font-family: arial;
 `;
-
 const apiUrl = 'https://api.themoviedb.org/3';
 // /movie/550?api_key=f51e6992d22392e91a2fe35d26f556e2
 // /discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22&api_key=f51e6992d22392e91a2fe35d26f556e2
@@ -38,7 +30,6 @@ export default function App() {
     return result.json();
     })
     .then(data => {
-      console.log(data)
         return data.map((result, index) => {
                         var url = window.location.href;
                         var params = url.split('?search=');
@@ -47,7 +38,7 @@ export default function App() {
                         if (searchvalue == undefined) {
                             searchvalue = "";
                         }
-                        console.log(searchvalue)
+
                         //fjerner + fra parameterne så det matcher movie.title og blir %3A ved : så endrer det tilbake' tar bort # fra store delen også.
                         for (var i = 0; i < searchvalue.length; i++) {
                             searchvalue = searchvalue.replace("+", " ");
@@ -55,12 +46,13 @@ export default function App() {
                             searchvalue = searchvalue.replace("#", "");
                         }
                     if (result.title.toUpperCase().includes(searchvalue.toUpperCase())) {
-                          console.log("SEARCHVALUE" +result.title);
+
                             return{
                               title: result.title,
                               posterUrl: `https://image.tmdb.org/t/p/original/${result.poster_path}`,
                               year: result.release_date,
-                              rating: result.vote_average,
+                              _id: result._id,
+                              rating: result.score,
                               plot: result.overview,
                             }
                         }
