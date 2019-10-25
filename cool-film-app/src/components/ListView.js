@@ -8,6 +8,7 @@ import MoviePopoutContent from './MoviePopoutContent'
 import ModalPopout from './ModalPopout'
 import ModalPopoutContent from './ModalPopoutContent'
 
+
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -31,11 +32,8 @@ export default function ListView ({ movies }) {
                   plot={plot}
                 />
               }>
-              <MovieItem
-                title={title}
-                posterUrl={posterUrl}
-                year={year}
-              />
+              
+
             </HoverPopout>
             
             <ModalPopout
@@ -48,6 +46,12 @@ export default function ListView ({ movies }) {
                   plot={plot}
                 />
               }>
+                
+                <MovieItem
+                title={title}
+                posterUrl={posterUrl}
+                year={year}
+              />
             </ModalPopout>
 
           </div>

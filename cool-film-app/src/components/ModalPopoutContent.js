@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Rating from "./Rating"
 
 const ModalContainer = styled.div`
   background-color: gray;
@@ -28,11 +29,11 @@ const Text = styled.div`
 `;
 
 const TextContainer = styled.div`
-  min-width: 150px;
+  min-width: 300px;
   max-width: 200px;
 `;
 
-export default function MoviePopoutContent ({
+export default function ModalPopoutContent ({
   title,
   posterUrl,
   year,
@@ -42,6 +43,7 @@ export default function MoviePopoutContent ({
   return (
     <ModalContainer>
       <Title>{title}</Title>
+      <Rating />
       <TextContainer>
           <Text>This is the modal</Text>
           <Text>Premiere: {year}</Text>
