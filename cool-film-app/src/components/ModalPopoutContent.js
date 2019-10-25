@@ -42,10 +42,11 @@ export default function ModalPopoutContent ({
 }) {
   return (
     <ModalContainer>
+    <Text>Click the image again to close</Text>
       <Title>{title}</Title>
       <Rating />
       <TextContainer>
-          <Text>This is the modal</Text>
+          
           <Text>Premiere: {year}</Text>
           <Text>IMDB rating: {rating}</Text>
           <br/>

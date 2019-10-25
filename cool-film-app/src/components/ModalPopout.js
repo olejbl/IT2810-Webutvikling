@@ -7,12 +7,18 @@ const ModalContainer = styled.div`
 
 export default function ModalPopout ({ children, popout: ModalContent }) {
 
-  const [ isClicked, setClicked ] = useState(false);
+  //const [ isClicked, setClicked ] = useState(false);
+  const [isClicked, setClicked] = useState(false);
+  const toggleClicked = () => setClicked((current) => !current)
+  
+
 
   return (
     <>
       <div
-        onClick={() => setClicked(true)} //modal
+        onClick={toggleClicked} //modal
+
+        //onMouseOut={() => setClicked(false)} //modal
       >
         {children}
       </div>

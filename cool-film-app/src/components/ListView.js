@@ -1,17 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import MovieItem from './MovieItem'
 //Hoverpopout
 import HoverPopout from './HoverPopout'
 import MoviePopoutContent from './MoviePopoutContent'
-<<<<<<< HEAD
 //Modal
 import ModalPopout from './ModalPopout'
 import ModalPopoutContent from './ModalPopoutContent'
 
-=======
 import {Component} from 'react'
->>>>>>> 34b26611de3920d04e5dc4d195364284d9e0b176
 
 var searchvalue = "";
 
@@ -105,12 +103,28 @@ class ListView extends Component {
                                                 plot={movie.plot}
                                             />
                                         }>
-                                        <MovieItem
+                                         
+                                    </HoverPopout>
+
+                                    <ModalPopout
+                                        popout={
+                                          <ModalPopoutContent
+                                          title={movie.title}
+                                          posterUrl={movie.posterUrl}
+                                          year={movie.year}
+                                          rating={movie.rating}
+                                          plot={movie.plot}
+                                          />
+                                        }>
+                                          <MovieItem
                                             title={movie.title}
                                             posterUrl={movie.posterUrl}
                                             year={movie.year}
                                         />
-                                    </HoverPopout></div>
+                                      </ModalPopout>
+                                    
+                                    </div>
+                                    
                             } else if (movie.title.toUpperCase().includes(searchvalue.toUpperCase())) {
                                 return <div key={index}>
                                     <HoverPopout
@@ -128,7 +142,8 @@ class ListView extends Component {
                                             posterUrl={movie.posterUrl}
                                             year={movie.year}
                                         />
-                                    </HoverPopout></div>
+                                    </HoverPopout>
+                                    </div>
                             }
                         }
                     )
